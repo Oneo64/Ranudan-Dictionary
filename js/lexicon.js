@@ -1163,7 +1163,7 @@ const entries = {
 	"dalashe": ["noun group a", "crystal, gem"],
 	"damas": ["adjective", "red"],
 	"damelde": ["noun group a", "language"],
-	"damwe": ["noun group a", "darkness, gloom, overcast shadow"],
+	"damwe": ["noun group a", "darkness, gloom, murk, shadow"],
 	"damûr": ["adjective", "dark, dim"],
 	"damûrssi": ["noun group a", "darkness, shadow, dark"],
 	"dant": ["noun group b", "staff, stave"],
