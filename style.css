@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+h1 {
+	@media (max-width: 500px) {
+		font-size: calc(64px * 0.66);
+		margin-top: 0;
+	}
+
+	@media (min-width: 500px) {
+		font-size: 64px;
+	}
+
+	font-family: 'IM Fell English SC', serif;
+}
+
+.h1favicon {
+	@media (max-width: 500px) {
+		width: calc(96px * 0.66);
+		height: calc(96px * 0.66);
+	}
+
+	@media (min-width: 500px) {
+		width: 96px;
+		height: 96px;
+		margin-top: 32px;
+	}
+}
+
+.titlespan {
+	display: flex;
+	flex-wrap: wrap;
+
+	@media (max-width: 500px) {
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+h2 {
+	@media (max-width: 500px) {
+		font-size: calc(28px * 0.66);
+	}
+
+	@media (min-width: 500px) {
+		font-size: 28px;
+	}
+
+	font-family: 'Noto Sans', serif;
+	color: slategrey;
+}
+
+.h2font {
+	@media (max-width: 500px) {
+		font-size: calc(28px * 0.66);
+	}
+
+	@media (min-width: 500px) {
+		font-size: 28px;
+	}
+	
+	font-family: 'Noto Sans', serif;
+}
+
+h3 {
+	@media (max-width: 500px) {
+		font-size: calc(24px * 0.66);
+	}
+
+	@media (min-width: 500px) {
+		font-size: 24px;
+	}
+
+	font-family: 'Noto Sans', serif;
+}
+
+h4 {
+	@media (max-width: 500px) {
+		font-size: calc(20px * 0.66);
+	}
+
+	@media (min-width: 500px) {
+		font-size: 20px;
+	}
+
+	font-family: 'Noto Sans', serif;
+}
+
+p {
+	@media (max-width: 500px) {
+		font-size: calc(18px * 0.75);
+	}
+
+	@media (min-width: 500px) {
+		font-size: 18px;
+	}
+
+	font-family: 'Noto Sans', serif;
+}
+
+.pfont {
+	@media (max-width: 500px) {
+		font-size: calc(18px * 0.75);
+	}
+
+	@media (min-width: 500px) {
+		font-size: 18px;
+	}
+
+	font-family: 'Noto Sans', serif;
+}
+
+.ipa {
+	@media (max-width: 500px) {
+		font-size: calc(20px * 0.66);
+	}
+
+	@media (min-width: 500px) {
+		font-size: 20px;
+	}
+
+	font-family: Gentium, 'Gentium Plus', GentiumAlt, 'DejaVu Sans', 'Segoe UI', 'Lucida Grande', 'Charis SIL', 'Doulos SIL', 'TITUS Cyberbit Basic', 'Code2000', 'Lucida Sans Unicode', sans-serif;
+	font-variant-ligatures: none;
+	font-weight: normal;
+}
+
+h1 a {
+	color: black;
+}
+
+a:not(h1 a):link {
+	color: blue;
+	text-decoration: none;
+}
+
+a:not(h1 a):hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+a:not(h1 a):visited {
+	color: blue;
+	text-decoration: none;
+}
+
+.inputbox {
+	width: 230px;
+}
+
+.submit {
+	margin-left: 8px;
+	width: 100px;
+
+	border: 2px solid black;
+	border-radius: 0;
+}
+
+.button {
+	width: 100px;
+
+	border: 2px solid black;
+	border-radius: 0;
+}
+
+.checkbox {
+	width: 1em;
+	height: 1em;
+
+	outline: 1.5px solid black !important;
+	border-radius: 0;
+}
+
+.letterlist {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.center {
+	width: 100%;
+	justify-content: center;
+	text-align: center;
+}
+
+.list {
+	display: grid;
+
+	grid-auto-flow: column;
+	grid-template-rows: repeat(var(--words-per-column), 35px);
+}
+
+.list4 {
+	display: grid;
+
+	grid-auto-flow: column;
+	grid-template-rows: repeat(100, 65px);
+}
+
+.listitem {
+	width: 100%;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid black;
+	padding: 8px;
+	text-align: center;
+}
+
+th {
+	background: gainsboro;
+	text-align: center;
+}
+
+textarea {
+	resize: none;
+	width: 100%;
+	height: 10rem;
+}
+
+/* This shit down here is the body padding (adds space around the side of the window) */
+/* Mobile sizes */
+@media (max-width: 500px) {
+	.body {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.nowrap {
+		width: calc(100vw - 50px);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+/* Desktop sizes */
+@media (min-width: 500px) {
+	.body {
+		margin-left: 50px;
+		margin-right: 50px;
+	}
+
+	.nowrap {
+		width: calc(100vw - 100px);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.textcenter {
+	padding-top: calc(10px);
+}
+
+.footer {
+	height: 60px;
+	vertical-align: center;
+	justify-content: center;
+	background: gainsboro;
+}

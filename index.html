@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ranûdan Dictionary</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+<div class="body">
+	<span class="titlespan"><img class="h1favicon" src="images/favicon.png" alt="favicon"><h1><a href="index.html">Ranûdan Dictionary</a></h1></span>
+	<div id="letters" class="letterlist h2font"></div>
+	<hr>
+	<p>This is the official Ranûdan dictionary created by Oneo64 for the worldbuilding project <a href="https://github.com/Oneo64/Aldraheimr">Aldraheimr</a>!</p>
+	<p>Source: <a href="https://docs.google.com/spreadsheets/d/1O93c3-ixPH9kNhoYiGOADgcNJ7bPK-FeqRosCogkIKA/">Google Sheets</a></p>
+	<p id="wordcount"></p>
+	<hr>
+	<p>This conlang is under the license <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+</div>
+
+<script src="js/letters.js"></script>
+<script src="js/lexicon.js"></script>
+<script>
+
+	var now = new Date();
+	var specificDate = new Date("2022-08-01");
+
+	var diff = now - specificDate;
+	var days = diff / (1000 * 60 * 60 * 24);
+	var years = diff / (1000 * 60 * 60 * 24 * 365.25);
+
+	var years2 = Math.floor(years);
+	var days2 = Math.floor(days - (years2 * 365.25));
+
+	var roots = 0;
+
+	for (var i = 0; i < entry_words.length; i++) {
+		var w = entry_words[i];
+
+		if (!w.includes(" ") && !w.includes(",") && !w.includes("/") && !w.includes("-")) roots++;
+	}
+
+	document.getElementById("wordcount").innerHTML = "Right now, Ranûdan has " + entry_words.length + " words (" + roots + " roots), and is currently " + years2 + " years and " + days2 + " days old!";
+</script>
+</body>
+</html>

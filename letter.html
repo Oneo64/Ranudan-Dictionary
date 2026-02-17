@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title id="title">Ranûdan Dictionary</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+<div class="body">
+	<span class="titlespan"><img class="h1favicon" src="images/favicon.png" alt="favicon"><h1><a href="index.html">Ranûdan Dictionary</a></h1></span>
+	<div id="letters" class="letterlist h2font"></div>
+	<hr>
+	<h3 id="letter">A</h3>
+	<div id="words" class="list pfont"></div>
+	<p>This conlang is under the license <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+</div>
+
+<script src="js/letters.js"></script>
+<script src="js/lexicon.js"></script>
+<script>
+	var query = window.location.search;
+	var params = new URLSearchParams(query);
+	var v = params.get("v");
+
+	document.getElementById("title").innerHTML = "Ranûdan Dictionary - " + v.toUpperCase() + " Orður";
+	document.getElementById("letter").innerHTML = "Letter " + v.toUpperCase();
+
+	var list = [];
+
+	if (v) {
+		for (var i = 0; i < entry_words.length; i++) {
+			if (entry_words[i].startsWith(v) || entry_words[i].startsWith("-" + v)) list.push(entry_words[i]);
+		}
+
+		var order = "aábdðeéfghiíjklmnoóprstuúvxyýzþæö";
+		var orderMap = new Map(order.split("").map((x, i) => [x, i]));
+
+		list.sort((a, b) => {
+			var len = Math.max(a.length, b.length);
+
+			for (var i = 0; i < len; i++) {
+				var a2 = orderMap.get(a[i]) ?? Infinity;
+				var b2 = orderMap.get(b[i]) ?? Infinity;
+
+				if (a2 == Infinity) return b2 - a2;
+				if (a2 != b2) return a2 - b2;
+			}
+
+			return a.length - b.length;
+		});
+
+		for (var i = 0; i < list.length; i++) {
+			document.getElementById("words").innerHTML += "<a class='listitem' href='word.html?v=" + list[i] + "'>" + list[i] + "</a>";
+		}
+	}
+
+	document.getElementById("letter").innerHTML += " (" + list.length + ")"
+
+	function onWindowResize() {
+		var details = navigator.userAgent;
+		var regexp = /android|iphone/i;
+		var columns = 4;
+
+		if (regexp.test(details) || window.innerWidth < 500) columns = 3;
+
+		document.documentElement.style.setProperty(
+			"--words-per-column",
+			Math.ceil(document.getElementById("words").children.length / columns)
+		);
+	}
+
+	window.onresize = onWindowResize;
+	onWindowResize();
+</script>
+</body>
+</html>

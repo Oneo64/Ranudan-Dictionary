@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title id="title">Ranûdan Dictionary</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+<div class="body">
+	<span class="titlespan"><img class="h1favicon" src="images/favicon.png" alt="favicon"><h1><a href="index.html">Ranûdan Dictionary</a></h1></span>
+	<div id="letters" class="letterlist h2font"></div>
+	<hr>
+	<h3 id="word">Word not found</h3>
+	<p id="type">n/a</p>
+	<p id="definition">Sorry, this word doesn't exist in Ranûdan!</p>
+	<hr>
+	<p>This conlang is under the license <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+</div>
+
+<script src="js/letters.js"></script>
+<script src="js/lexicon.js"></script>
+<script src="js/declensions.js"></script>
+<script>
+	var query = window.location.search;
+	var params = new URLSearchParams(query);
+	var v = params.get("v");
+
+	if (v in entries) {
+		var entry = entries[v];
+		var v2 = v;
+
+		if (v.endsWith(")")) v2 = v.substring(0, v.length - 4);
+
+		document.getElementById("title").innerHTML = "Ranûdan Dictionary - " + v.charAt(0).toUpperCase() + v.substring(1);
+		document.getElementById("word").innerHTML = v;
+		document.getElementById("type").innerHTML = word_type_short_form[entry[0]];
+		document.getElementById("definition").innerHTML = entry[1];
+
+		if (entry[1].includes("|")) {
+			document.getElementById("definition").innerHTML = entry[1].substring(0, entry[1].indexOf("|")).trim();
+		}
+
+		function onWindowResize() {
+			if (window.innerWidth < 500 || window.innerHeight < 500) {
+				if (document.getElementById("noun_declension_mobile").hidden) {
+					document.getElementById("noun_declension").hidden = true;
+					document.getElementById("noun_declension_mobile").hidden = false;
+				}
+			} else {
+				if (document.getElementById("noun_declension").hidden) {
+					document.getElementById("noun_declension").hidden = false;
+					document.getElementById("noun_declension_mobile").hidden = true;
+				}
+			}
+		}
+
+		/*if (entry.length != 3 || !entry[2].includes("no-declension")) {
+			if (entry[0].endsWith("noun")) {
+				var declension = get_noun_declension(v, entry[0]);
+
+				if (declension.length != 0) {
+					window.onresize = onWindowResize;
+					onWindowResize();
+
+					document.getElementById("declension_top").innerHTML = "orðraðingpung fyrir '" + v2 + "'";
+					document.getElementById("_declension_top").innerHTML = "orðraðingpung fyrir '" + v2 + "'";
+
+					if (entry[0] == "masculine noun") {
+						document.getElementById("gender").innerHTML = "mandligr";
+						document.getElementById("_gender").innerHTML = "mandligr";
+					}
+
+					if (entry[0] == "feminine noun") {
+						document.getElementById("gender").innerHTML = "kónligr";
+						document.getElementById("_gender").innerHTML = "kónligr";
+					}
+
+					for (var i = 0; i < 16; i++) {
+						document.getElementById("n" + i).innerHTML = declension[i];
+						document.getElementById("_n" + i).innerHTML = declension[i];
+					}
+				}
+			} else if ((entry[0] == "verb" || entry[0] == "auxiliary") && !v2.includes(" ")) {
+				if (!v2.endsWith("ask")) {
+					document.getElementById("verb_declension").hidden = false;
+
+					document.getElementById("declension_top2").innerHTML = "orðraðingpung fyrir '" + v2 + "'";
+					document.getElementById("infinitive").innerHTML = "at " + v2;
+					document.getElementById("imperative").innerHTML = add_verb_ending_basic(v2, "u");
+					document.getElementById("present_participle").innerHTML = add_verb_ending_basic(v2, "andi");
+					document.getElementById("past_participle").innerHTML = get_past_participle(v2);
+
+					document.getElementById("past_tense").innerHTML = get_past_tense(v2);
+					document.getElementById("1st_present").innerHTML = get_present_tense(v2, 1);
+					document.getElementById("2nd_present").innerHTML = get_present_tense(v2, 2);
+					document.getElementById("3rd_present").innerHTML = get_present_tense(v2, 3);
+					document.getElementById("gerund").innerHTML = get_gerund(v2);
+				}
+
+				if (entry[0] == "verb") {
+					if (v2.endsWith("ask")) v2 = v2.substring(0, v2.length - 3) + "a";
+
+					document.getElementById("mediopassive_declension").hidden = false;
+					document.getElementById("mediopassive_top").innerHTML = get_mediopassive(v2);
+					document.getElementById("infinitive2").innerHTML = "at " + get_mediopassive(v2);
+					document.getElementById("present_tense2").innerHTML = get_mediopassive_present(v2);
+					document.getElementById("past_tense2").innerHTML = get_mediopassive_past(v2);
+				}
+			} else if (entry[0] == "adjective") {
+				document.getElementById("adjective_declension").hidden = false;
+				document.getElementById("adjective_top").innerHTML = "orðraðingpung fyrir '" + v2 + "'";
+				document.getElementById("a0").innerHTML = v2;
+				document.getElementById("a1").innerHTML = add_adj_ending_basic(v2, "");
+				document.getElementById("a2").innerHTML = add_adj_ending_basic(v2, "a");
+				document.getElementById("a3").innerHTML = add_adj_ending_basic(v2, "ar");
+				document.getElementById("a4").innerHTML = add_adj_ending_basic(v2, "ara");
+				document.getElementById("a5").innerHTML = add_adj_ending_basic(v2, "jast");
+				document.getElementById("a6").innerHTML = add_adj_ending_basic(v2, "jasta");
+				document.getElementById("a7").innerHTML = add_adj_ending_basic(v2, "na");
+				document.getElementById("a8").innerHTML = add_adj_ending_basic(v2, "na");
+				document.getElementById("a9").innerHTML = add_adj_ending_basic(v2, "an");
+				document.getElementById("a10").innerHTML = add_adj_ending_basic(v2, "an");
+			}
+		}*/
+	}
+</script>
+</body>
+</html>

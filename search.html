@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title id="title">Ranûdan Dictionary</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="custom_checkboxes.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+<div class="body">
+	<span class="titlespan"><img class="h1favicon" src="images/favicon.png" alt="favicon"><h1><a href="index.html">Ranûdan Dictionary</a></h1></span>
+	<div id="letters" class="letterlist h2font"></div>
+	<hr>
+
+	<form action="search.html" method="GET">
+		<input type="text" class="inputbox pfont" id="searchbox" name="v">
+		<br><br>
+		<label for="pos" class="pfont">Part of Speech:</label>&nbsp&nbsp<select name="pos" id="pos" class="pfont button" style="width: auto;">
+			<option value="all">all</option>
+			<option value="adjective">adjective</option>
+			<option value="adverb">adverb</option>
+			<option value="noun">noun</option>
+			<option value="verb">verb</option>
+			<option value="prefix">beginning with</option>
+			<option value="suffix">ending with</option>
+		</select>
+		<br><br>
+		<label class="container pfont" style="margin-bottom: 20px;">Search declensions (wip)
+			<input id="declensions" name="d" type="checkbox" checked="checked">
+			<span class="checkmark" style="border: 2px solid black;"></span>
+		</label>
+		<input type="submit" class="submit pfont" value="Search" style="margin: 0;">
+	</form>
+	<h3 id="search"></h3>
+	<div id="results" class="list4 pfont"></div>
+</div>
+
+<script src="js/letters.js"></script>
+<script src="js/lexicon.js"></script>
+<script src="js/declensions.js"></script>
+<script>
+	var query = window.location.search;
+	var params = new URLSearchParams(query);
+	var v = params.get("v");
+	var pos = params.get("pos");
+	var d = params.get("d");
+
+	if (v != null) v = v.toLowerCase();
+
+	document.getElementById("searchbox").value = v;
+	document.getElementById("pos").value = pos != null ? pos : "all";
+	document.getElementById("declensions").checked = d != null;
+
+	document.getElementById("title").innerHTML = "Ranûdan Dictionary - Search results";
+	document.getElementById("search").innerHTML = "Searched results of '" + v + "'";
+
+	if (v == "") {
+		document.getElementById("results").innerHTML = "<div>The search cannot be empty!</div>";
+	} else {
+		var slotsLeft = 100;
+
+		for (var i = 0; i < entry_words.length; i++) {
+			var word = entry_words[i];
+
+			if (word in entries) {
+				var word2 = word;
+
+				if (word.endsWith(")")) word2 = word.substring(0, word.length - 4);
+
+				if (pos != null && pos != "all" && entries[word][0] != pos) {
+					if ((pos != "prefix" || !word2.startsWith(v)) && (pos != "suffix" || !word2.endsWith(v))) continue;
+				}
+
+				var def = entries[word][1];
+				var added = false;
+
+				if (def.includes("|")) def = def.substring(0, def.indexOf("|")).trim();
+
+				if (def.includes(v)) {
+					document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + entry_words[i] + "</a><div class='nowrap'>&nbsp&nbsp" + def + "</div></div>";
+					added = true;
+				} else if (word.includes(v)) {
+					document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í orðinni)</div></div>";
+					added = true;
+				}
+
+				if (entries[word][0] == "verb" && !added && d) {
+					switch (true) {
+						case v == get_past_tense(word):
+							document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í fyrligt orði)</div></div>";
+							added = true;
+							break;
+
+						case v == get_past_participle(word):
+							document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í fyrligt hrimlingorði)</div></div>";
+							added = true;
+							break;
+
+						case v == get_present_tense(word, 1) || v == get_present_tense(word, 2) || v == get_present_tense(word, 3):
+							document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í núligt orði)</div></div>";
+							added = true;
+							break;
+
+						case v == add_verb_ending_basic(word, "andi"):
+							document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í núligt hrimlingorði)</div></div>";
+							added = true;
+							break;
+					}
+				}
+
+				if (added) {
+					slotsLeft -= 1;
+
+					if (slotsLeft <= 0) break;
+				}
+			} else {
+				alert("Warning: The word " + word + " is not in the entry list!");
+			}
+		}
+
+		if (document.getElementById("results").innerHTML == "") {
+			document.getElementById("results").innerHTML = "<div>Shit!!! The word '" + v + "' doesn't exist. :(</div>";
+		}
+	}
+</script>
+</body>
+</html>
