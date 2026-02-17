@@ -1165,7 +1165,7 @@ const entries = {
 	"damelde": ["noun group a", "language"],
 	"damwe": ["noun group a", "darkness, gloom, murk, shadow"],
 	"damûr": ["adjective", "dark, dim"],
-	"damûrssul": ["noun group c", "the dark area behind objects or inside rooms when there's a dark atmosphere and a light source; a shadow; a dark hiding spot"],
+	"damûrssul": ["noun group c", "darkness, shadow; a dark hiding spot"],
 	"dant": ["noun group b", "staff, stave"],
 	"dara": ["noun group b", "copper"],
 	"darassil": ["noun group a", "glade, forest clearing"],
