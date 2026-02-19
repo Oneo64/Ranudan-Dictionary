@@ -1662,7 +1662,7 @@ const entries = {
 	"qwôlar": ["noun group b", "hall, hallway"],
 	"qwôra": ["noun group b", "chainmail, chain mail, maille"],
 	"qwôren": ["verb", "to hug in a friendly way"],
-	"raelesh": ["verb", "to die to old age"],
+	"raelesh": ["verb", "to die, to succumb"],
 	"raeleshtil": ["adjective", "dead"],
 	"raien": ["verb", "to own, to have"],
 	"ralwe": ["noun group a", "ghost, apparition, wisp, spirit, genie"],
