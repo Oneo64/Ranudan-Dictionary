@@ -1007,6 +1007,7 @@ const entry_words = [
 	"ûrci",
 	"ûthe",
 	"ŷcil",
+	"ŷndûl",
 	"ŷre",
 	"ŷrŋ",
 ];
@@ -1999,6 +2000,7 @@ const entries = {
 	"ûrci": ["noun group c", "orc, ork"],
 	"ûthe": ["noun group a", "emotion, feelings"],
 	"ŷcil": ["noun group c", "snake"],
+	"ŷndûl": ["noun group c", "bomb, explosive"],
 	"ŷre": ["noun group a", "star"],
 	"ŷrŋ": ["noun group a", "bell"],
 };
