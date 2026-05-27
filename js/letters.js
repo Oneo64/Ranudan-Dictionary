@@ -5,7 +5,7 @@ for (var i = 0; i < letters.length; i++) {
 }
 
 if (!document.getElementById("searchbox")) {
-	document.getElementById("letters").innerHTML += '<form action="search.html" method="GET"><input type="text" class="inputbox pfont" id="searchbox" name="v"><input type="submit" class="submit pfont" value="Search"></form>';
+	document.getElementById("letters").innerHTML += '<form action="search.html" method="GET"><input type="text" class="inputbox pfont" id="searchbox" name="v" autocomplete="off"><input type="submit" class="submit pfont" value="Search"></form>';
 }
 
 if (document.getElementById("letters2") != null) {
