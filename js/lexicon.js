@@ -1862,7 +1862,7 @@ const entries = {
 	"rûndie": ["numeral", "nine"],
 	"rŷŋ": ["noun group a", "something ancient, old, mystical, or magical"],
 	"rŷŋ-gwandar": ["noun group a", "wizardry"],
-	"s'-": ["prefix", "definite article shortened into prefix form, used with words that dont start with s- (sh- words are the exception) (informal); examples: s'belde, s'shelesse, s'zanse"],
+	"s'-": ["prefix", "definite article shortened into prefix form, used with words that dont start with a vowel or s- (sh- words are the exception) (informal); examples: s'belde, s'shelesse, s'zanse"],
 	"sa (1)": ["pronoun", "that (non-genitive)"],
 	"sa (2)": ["article", "definite article"],
 	"saelas": ["adjective", "black"],
