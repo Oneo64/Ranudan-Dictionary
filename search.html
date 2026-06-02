@@ -79,32 +79,32 @@
 				if (def.includes("|")) def = def.substring(0, def.indexOf("|")).trim();
 
 				if (def.includes(v)) {
-					document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + entry_words[i] + "</a><div class='nowrap'>&nbsp&nbsp" + def + "</div></div>";
+					document.getElementById("results").innerHTML += "<div><a class='listitem' href=\"word.html?v=" + word + "\">" + entry_words[i] + "</a><div class='nowrap'>&nbsp&nbsp" + def + "</div></div>";
 					added = true;
 				} else if (word.includes(v)) {
-					document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(found in word)</div></div>";
+					document.getElementById("results").innerHTML += "<div><a class='listitem' href=\"word.html?v=" + word + "\">" + word + "</a><div class='nowrap'>&nbsp&nbsp(found in word)</div></div>";
 					added = true;
 				}
 
 				if (entries[word][0] == "verb" && !added && d) {
 					switch (true) {
 						case v == get_past_tense(word):
-							document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í fyrligt orði)</div></div>";
+							document.getElementById("results").innerHTML += "<div><a class='listitem' href=\"word.html?v=" + word + "\">" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í fyrligt orði)</div></div>";
 							added = true;
 							break;
 
 						case v == get_past_participle(word):
-							document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í fyrligt hrimlingorði)</div></div>";
+							document.getElementById("results").innerHTML += "<div><a class='listitem' href=\"word.html?v=" + word + "\">" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í fyrligt hrimlingorði)</div></div>";
 							added = true;
 							break;
 
 						case v == get_present_tense(word, 1) || v == get_present_tense(word, 2) || v == get_present_tense(word, 3):
-							document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í núligt orði)</div></div>";
+							document.getElementById("results").innerHTML += "<div><a class='listitem' href=\"word.html?v=" + word + "\">" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í núligt orði)</div></div>";
 							added = true;
 							break;
 
 						case v == add_verb_ending_basic(word, "andi"):
-							document.getElementById("results").innerHTML += "<div><a class='listitem' href='word.html?v=" + word + "'>" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í núligt hrimlingorði)</div></div>";
+							document.getElementById("results").innerHTML += "<div><a class='listitem' href=\"word.html?v=" + word + "\">" + word + "</a><div class='nowrap'>&nbsp&nbsp(fyndið í núligt hrimlingorði)</div></div>";
 							added = true;
 							break;
 					}
