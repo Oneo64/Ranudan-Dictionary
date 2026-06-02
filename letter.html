@@ -24,7 +24,7 @@
 	var params = new URLSearchParams(query);
 	var v = params.get("v");
 
-	document.getElementById("title").innerHTML = "Ranûdan Dictionary - " + v.toUpperCase() + " Orður";
+	document.getElementById("title").innerHTML = "Ranûdan Dictionary - Letter " + v.toUpperCase();
 	document.getElementById("letter").innerHTML = "Letter " + v.toUpperCase();
 
 	var list = [];
@@ -34,7 +34,7 @@
 			if (entry_words[i].startsWith(v) || entry_words[i].startsWith("-" + v)) list.push(entry_words[i]);
 		}
 
-		var order = "aábdðeéfghiíjklmnoóprstuúvxyýzþæö";
+		var order = "abcdefghijlmnoôpqrstuûvwyŷz";
 		var orderMap = new Map(order.split("").map((x, i) => [x, i]));
 
 		list.sort((a, b) => {
