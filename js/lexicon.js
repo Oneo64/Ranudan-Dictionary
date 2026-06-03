@@ -1494,7 +1494,7 @@ const entries = {
 	"gessesh": ["verb", "to breathe"],
 	"gesta": ["noun group b", "room"],
 	"gewme": ["noun group a", "fog"],
-	"gi": ["preposition", "for a person; for a period of time in the future"],
+	"gi": ["preposition", "for a person; for a period of time in the future; because, for"],
 	"giel": ["noun group a", "honey"],
 	"ginden": ["verb", "to paint"],
 	"glai": ["adverb", "unwell, badly"],
