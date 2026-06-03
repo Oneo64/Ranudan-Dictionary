@@ -1681,7 +1681,7 @@ const entries = {
 	"maŋwesh": ["verb", "to stink, to emit a bad smell, to emit a stench"],
 	"maŋye": ["noun group a", "potion, concoction, mixture"],
 	"maŋyen": ["verb", "to invoke, to provoke, to rouse, to stir"],
-	"maŋyesh": ["verb", "to change in season; to be invoked, to be provoked, to be roused"],
+	"maŋyesh": ["verb", "to arrive in geological season; to be invoked, to be provoked, to be roused"],
 	"meca": ["noun group b", "brick"],
 	"meidel": ["noun group b", "shovel"],
 	"melan": ["noun group a", "help, assistance"],
