@@ -1705,7 +1705,7 @@ const entries = {
 	"mele": ["adjective", "melodic, lyrical"],
 	"meltie": ["conjunction", "when"],
 	"melya-bie": ["adjective", "lovely, adorable"],
-	"melyan": ["verb", "to love"],
+	"melyan": ["verb", "to love, to cherish"],
 	"menden ulumailindu": ["verb", "to pay back, to repay, to tribute (formal)"],
 	"menden": ["verb", "to pay"],
 	"mere": ["noun group b", "favourite"],
