@@ -31,7 +31,9 @@
 
 	if (v) {
 		for (var i = 0; i < entry_words.length; i++) {
-			if (entry_words[i].startsWith(v) || entry_words[i].startsWith("-" + v)) list.push(entry_words[i]);
+			var test = entry_words[i].toLowerCase();
+
+			if (test.startsWith(v) || test.startsWith("-" + v)) list.push(entry_words[i]);
 		}
 
 		var order = "abcdefghilmnoôpqrstuûvwyŷz";

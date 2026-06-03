@@ -14,7 +14,7 @@
 	<hr>
 	<h3 id="word">Word not found</h3>
 	<p id="type">n/a</p>
-	<p id="definition">Sorry, this word doesn't exist in Ranûdan!</p>
+	<ol id="definitions" class="pfont"></ol>
 	<hr>
 	<p>This conlang is under the license <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
 </div>
@@ -36,10 +36,16 @@
 		document.getElementById("title").innerHTML = "Ranûdan Dictionary - " + v.charAt(0).toUpperCase() + v.substring(1);
 		document.getElementById("word").innerHTML = v;
 		document.getElementById("type").innerHTML = word_type_short_form[entry[0]];
-		document.getElementById("definition").innerHTML = entry[1];
+		document.getElementById("definitions").innerHTML = "";
 
-		if (entry[1].includes("|")) {
-			document.getElementById("definition").innerHTML = entry[1].substring(0, entry[1].indexOf("|")).trim();
+		var defText = entry[1];
+
+		if (defText.includes("|")) defText = defText.substring(0, defText.indexOf("|")).trim();
+
+		var defs = defText.split(";");
+
+		for (var i = 0; i < defs.length; i++) {
+			document.getElementById("definitions").innerHTML += "<li>" + defs[i] + "</li>";
 		}
 
 		function onWindowResize() {
