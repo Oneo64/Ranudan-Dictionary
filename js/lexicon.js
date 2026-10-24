@@ -1365,7 +1365,7 @@ const entries = {
 	"cŷle": ["noun group a", "a fog pool formed in the ground when the morning fog dissipates"],
 	"cŷŋ": ["noun group a", "cold"],
 	"cŷŋ-bie": ["adjective", "cold"],
-	"cŷŋ-qwessie": ["noun group a", "cold elf"],
+	"cŷŋ-qwessie": ["noun group a", "cold elf (snow elf)"],
 	"daelfa": ["numeral", "four"],
 	"dagen": ["verb", "to kill, to slay, to murder"],
 	"dagssul": ["noun group c", "murder"],
